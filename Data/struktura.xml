@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Doklad>
+<Doklad>
+	<XMLCreateDate desc="datum a cas vytvoreni xml">CreationDatetime</XMLCreateDate> 
+	<DocID desc="ID dokumentu generovany robotem">IDnumber</DocID> 
+	<DocType desc="typ ucetniho dokladu">DocumentType</DocType>
+	<BenetOrderNumber desc="cislo nasi objednavky">OrderNo</BenetOrderNumber>
+	<OPCH_NumAtCard desc="variabilni symbol">VarSym</OPCH_NumAtCard> 
+	<OCRD_VatIdUnCmp desc="ICO">VendorID</OCRD_VatIdUnCmp> 
+	<OPCH_TaxDate desc="datum uskutecneni zdanitelného plnění">TaxPointDate</OPCH_TaxDate>
+	<OPCH_DocDueDate desc="datum splatnosti">DueDate</OPCH_DocDueDate>
+	<OPCH_U_Dl_k_Prijemce desc="dodaci listy prijem">DeliveryNote</OPCH_U_Dl_k_Prijemce>
+	<OPCH_DocTotal desc="doklad celkem">TotalAmount</OPCH_DocTotal>
+	<OCRB_Account desc="bankovni ucet">BankAccountNo</OCRB_Account>
+	<OPCH_VatSum desc="dan (DPH) celkem">VATax</OPCH_VatSum>
+	<OPCH_BaseTotal desc="doklad bez DPH - dopocitana hodnota">BaseValue</OPCH_BaseTotal>
+</Doklad>
+

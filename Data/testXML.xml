@@ -1,0 +1,15 @@
+<Doklad>
+  <XMLCreateDate desc="datum a cas vytvoreni xml">17.11.2020-21:18:12</XMLCreateDate>
+  <DocID desc="ID dokumentu generovany robotem">3583889</DocID>
+  <DocType desc="typ ucetniho dokladu">InvoiceCZ</DocType>
+  <BenetOrderNumber desc="cislo nasi objednavky"></BenetOrderNumber>
+  <OPCH_NumAtCard desc="variabilni symbol">1868439231</OPCH_NumAtCard>
+  <OCRD_VatIdUnCmp desc="ICO">27082440</OCRD_VatIdUnCmp>
+  <OPCH_TaxDate desc="datum uskutecneni zdanitelného plnění">09.05.2019</OPCH_TaxDate>
+  <OPCH_DocDueDate desc="datum splatnosti">09.05.2019</OPCH_DocDueDate>
+  <OPCH_U_Dl_k_Prijemce desc="dodaci listy prijem"></OPCH_U_Dl_k_Prijemce>
+  <OPCH_DocTotal desc="doklad celkem">4119,00</OPCH_DocTotal>
+  <OCRB_Account desc="bankovni ucet">188505042/0300</OCRB_Account>
+  <OPCH_VatSum desc="dan (DPH) celkem">714,87</OPCH_VatSum>
+  <OPCH_BaseTotal desc="doklad bez DPH - dopocitana hodnota">3404,13</OPCH_BaseTotal>
+</Doklad>
