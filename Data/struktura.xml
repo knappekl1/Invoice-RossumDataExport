@@ -4,6 +4,7 @@
 	<XMLCreateDate desc="datum a cas vytvoreni xml">CreationDatetime</XMLCreateDate> 
 	<DocID desc="ID dokumentu generovany robotem">IDnumber</DocID> 
 	<DocType desc="typ ucetniho dokladu">DocumentType</DocType>
+	<Currency desc="mena dokladu">Currency</Currency>
 	<BenetOrderNumber desc="cislo nasi objednavky">OrderNo</BenetOrderNumber>
 	<OPCH_NumAtCard desc="variabilni symbol">VarSym</OPCH_NumAtCard> 
 	<OCRD_VatIdUnCmp desc="ICO">VendorID</OCRD_VatIdUnCmp> 
