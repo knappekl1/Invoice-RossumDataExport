@@ -1,5 +1,5 @@
 {
-  "name": "Invoice-RossumDataExport",
+  "name": "Invoice-RossumDataExportFiberpreg",
   "description": "Exports processed and confirmed data from Rossum AI",
   "main": "Main.xaml",
   "dependencies": {
@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.8.0.0",
-  "projectVersion": "1.0.6",
+  "projectVersion": "1.0.7",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,

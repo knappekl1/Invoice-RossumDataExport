@@ -2596,11 +2596,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "Invoice-RossumDataExport",
-      "projectName": "Invoice-RossumDataExport",
-      "projectPath": "C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-RossumDataExport\\.local",
+      "projectUniqueName": "Invoice-RossumDataExportFiberpreg",
+      "projectName": "Invoice-RossumDataExportFiberpreg",
+      "projectPath": "C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Fiberpreg\\InvoiceProcess\\Invoice-RossumDataExport\\.local",
       "packagesPath": "C:\\Users\\libor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-RossumDataExport\\.local"
+      "outputPath": "C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Fiberpreg\\InvoiceProcess\\Invoice-RossumDataExport\\.local"
     },
     "frameworks": {
       "net461": {

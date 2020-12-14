@@ -1,10 +1,6 @@
 { "LoginDataStorage":"RossumLogin",
-"SourceFolder":"C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-Dispatcher\\Data\\Output\\Processing",
-"TargetFolder":"C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-Dispatcher\\Data\\Output\\Processed",
-"DataFolder":"C:\\Users\\libor\\Dropbox\\LK_docs\\Valuetools\\Zákazníci\\Benet Automotive\\Demo Process\\Invoice-Dispatcher\\Data\\Output\\OutputData",
-"EmailNotification": "uctarna@benet-auto.cz",
-"EmailSender":"no.reply@benet-auto.cz",
-"PasswordSender":"b6bbb1It3",
-"OutputTableMap":"Data\\OutputTableRows.xlsx",
-"XMLstructure":"Data\\struktura.xml"
+"EmailNotification": "libor.knappek@valuetools.cz",
+"EmailSender":"info@valuetools.cz",
+"PasswordSender":"Liborknappek1+",
+"OutputTableMap":"Data\\OutputTableRows.xlsx"
 }
