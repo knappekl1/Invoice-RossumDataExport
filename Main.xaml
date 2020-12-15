@@ -826,7 +826,7 @@
                                 <InArgument x:TypeArguments="x:String">[URL("id").ToString.Split("/"c).Last]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,494" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,791.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_10">
                               <TryCatch.Try>
                                 <Sequence sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_68">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -925,7 +925,7 @@
                 </Assign>
               </If.Else>
             </If>
-            <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Stores path for the data processing (next process), different when Approve activity is on/off. It is a folder path to the downloaded (or approved) files to process." AssetName="DataProcessingFolder" DisplayName="Set Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="570,134" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[DataProcessorAsset]">
+            <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Stores path for the data processing (next process), different when Approve activity is on/off. It is a folder path to the downloaded (or approved) files to process." AssetName="DataProcessingFolder" DisplayName="Set DataPath Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="570,134" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[DataProcessorAsset]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
