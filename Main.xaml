@@ -2,12 +2,11 @@
   <x:Members>
     <x:Property Name="in_TabConfirmedEnabled" Type="InArgument(x:Boolean)" />
     <x:Property Name="out_StatusReport" Type="OutArgument(x:String)" />
-    <x:Property Name="out_OutputInvoiceFolder" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2154,8874.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2154,9048.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -94,7 +93,7 @@
       <AssemblyReference>UiPath.Web</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="920.666666666667,8810" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence DisplayName="Entire Process" sap:VirtualizedContainerService.HintSize="920.666666666667,8984" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="ConfigObj" />
       <Variable x:TypeArguments="x:String" Name="TempFilePath" />
@@ -107,6 +106,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="MappingTable" />
       <Variable x:TypeArguments="x:String" Name="OutputFilePath" />
       <Variable x:TypeArguments="x:String" Name="LogString" />
+      <Variable x:TypeArguments="x:Object" Name="DataProcessorAsset" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -123,12 +123,17 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="878.666666666667,8616" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="878.666666666667,8790" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="FolderLocationDataString" />
+        <Variable x:TypeArguments="x:String" Name="ProcessorFolder">
+          <Variable.Default>
+            <Literal x:TypeArguments="x:String">Processed</Literal>
+          </Variable.Default>
+        </Variable>
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="This workflow logs to ELIS and exports all validated documents data to Output Folder" DisplayName="02_Export" sap:VirtualizedContainerService.HintSize="840,8378" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence sap2010:Annotation.AnnotationText="This workflow logs to ELIS and exports all validated documents data to Output Folder" DisplayName="02_Export" sap:VirtualizedContainerService.HintSize="840,8552" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="https://api.elis.rossum.ai/v1" Name="Endpoint" />
             <Variable x:TypeArguments="x:String" Name="loginID" />
@@ -236,7 +241,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="798,5948.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="798,5692.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="authKey" />
               <Variable x:TypeArguments="x:String" Name="ResultJSON" />
@@ -252,7 +257,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Create AuthKey" sap:VirtualizedContainerService.HintSize="682,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Create AuthKey" sap:VirtualizedContainerService.HintSize="601.333333333333,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -269,8 +274,8 @@
               </Assign>
               <ui:Replace DisplayName="Insert LoginID to authKey" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Replace_2" Input="[authKey]" IsBuilderTabModified="False" Pattern="LOGIN_ID" RegexOption="IgnoreCase, Compiled" Replacement="[loginID]" Result="[authKey]" />
             </Sequence>
-            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="682,68" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;Reading Files from Rossum...&quot;]" />
-            <Sequence DisplayName="Get Queue ID" sap:VirtualizedContainerService.HintSize="682,348.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="601.333333333333,68" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;Reading Files from Rossum...&quot;]" />
+            <Sequence DisplayName="Get Queue ID" sap:VirtualizedContainerService.HintSize="601.333333333333,348.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -309,7 +314,7 @@
                 </Assign.Value>
               </Assign>
             </Sequence>
-            <Sequence DisplayName="List documents" sap:VirtualizedContainerService.HintSize="682,585.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="List documents" sap:VirtualizedContainerService.HintSize="601.333333333333,585.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -350,7 +355,7 @@
               </Assign>
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Files to Process: &quot; + FilesToProcess.toString]" />
             </Sequence>
-            <If Condition="[ResultJSON.ToString.Contains(&quot;authentication_failed&quot;)]" DisplayName="If wrong credentials, stop" sap:VirtualizedContainerService.HintSize="682,214" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[ResultJSON.ToString.Contains(&quot;authentication_failed&quot;)]" DisplayName="If wrong credentials, stop" sap:VirtualizedContainerService.HintSize="601.333333333333,214" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,7 +366,7 @@
                 <Throw Exception="[New Exception(&quot;Wrong credentials&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Then>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="682,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign sap:VirtualizedContainerService.HintSize="601.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[Endpoint]</OutArgument>
               </Assign.To>
@@ -369,19 +374,19 @@
                 <InArgument x:TypeArguments="x:String">[Endpoint + "/queues/" + QueueID]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="[Index]" DisplayName="For Each Annotation ID" sap:VirtualizedContainerService.HintSize="682,4086" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[objJSON(&quot;results&quot;)]">
+            <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="[Index]" DisplayName="For Each Annotation ID" sap:VirtualizedContainerService.HintSize="601.333333333333,3830" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[objJSON(&quot;results&quot;)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="njl:JObject">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="njl:JObject" Name="URL" />
                   </ActivityAction.Argument>
-                  <TryCatch DisplayName="Try to process Item from results" sap:VirtualizedContainerService.HintSize="645.333333333333,3947.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                  <TryCatch DisplayName="Try to process Item from results" sap:VirtualizedContainerService.HintSize="564.666666666667,3691.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_11">
                     <TryCatch.Variables>
                       <Variable x:TypeArguments="x:String" Name="AnnotationID" />
                       <Variable x:TypeArguments="x:String" Name="MatchedFile" />
                     </TryCatch.Variables>
                     <TryCatch.Try>
-                      <Sequence DisplayName="Export and mark Deleted" sap:VirtualizedContainerService.HintSize="606.666666666667,3709.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Export and mark Deleted" sap:VirtualizedContainerService.HintSize="526,3453.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="ExportedDataJson" />
                         </Sequence.Variables>
@@ -390,8 +395,8 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="564.666666666667,68" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;Downloading File &quot; + (index + 1).ToString + &quot; of total &quot; + FilesToProcess.ToString]" />
-                        <Assign DisplayName="Extract Annotation" sap:VirtualizedContainerService.HintSize="564.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="484,68" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;Downloading File &quot; + (index + 1).ToString + &quot; of total &quot; + FilesToProcess.ToString]" />
+                        <Assign DisplayName="Extract Annotation" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_5">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[AnnotationID]</OutArgument>
                           </Assign.To>
@@ -399,7 +404,7 @@
                             <InArgument x:TypeArguments="x:String">[URL("id").ToString.Split("/"c).Last]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" sap2010:Annotation.AnnotationText="" BodyFormat="multipart/json" DisplayName="HTTP Request - EXPORT DATA" EndPoint="[Endpoint + &quot;/export?format=csv&amp;id=&quot; + AnnotationID]" sap:VirtualizedContainerService.HintSize="564.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="HttpClient_4" Method="GET" Result="[ExportedDataJson]" TimeoutMS="20000">
+                        <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" sap2010:Annotation.AnnotationText="" BodyFormat="multipart/json" DisplayName="HTTP Request - EXPORT DATA" EndPoint="[Endpoint + &quot;/export?format=csv&amp;id=&quot; + AnnotationID]" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="HttpClient_4" Method="GET" Result="[ExportedDataJson]" TimeoutMS="20000">
                           <ui:HttpClient.Attachments>
                             <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                           </ui:HttpClient.Attachments>
@@ -421,7 +426,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:HttpClient>
-                        <Sequence DisplayName="Write data to CSV" sap:VirtualizedContainerService.HintSize="564.666666666667,1126.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Write data to CSV" sap:VirtualizedContainerService.HintSize="484,1126.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ui:WorkbookApplication" Name="soubor_xlsx" />
                             <Variable x:TypeArguments="sd:DataTable" Name="MappingTable" />
@@ -595,7 +600,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:CommentOut>
                         </Sequence>
-                        <If Condition="[in_TabConfirmedEnabled]" sap:VirtualizedContainerService.HintSize="564.666666666667,214" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If Condition="[in_TabConfirmedEnabled]" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_3">
                           <If.Then>
                             <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" sap2010:Annotation.AnnotationText="" BodyFormat="multipart/json" DisplayName="HTTP Request - TO EXPORTED" EndPoint="[Endpoint + &quot;/export?id=&quot; + AnnotationID + &quot;&amp;to_status=exported&quot;]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="HttpClient_5" Method="POST" Result="[ResultJSON]" TimeoutMS="20000">
                               <ui:HttpClient.Attachments>
@@ -645,12 +650,12 @@
                             </ui:HttpClient>
                           </If.Else>
                         </If>
-                        <TryCatch DisplayName="Try to Move File" sap:VirtualizedContainerService.HintSize="564.666666666667,1894" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                        <TryCatch DisplayName="Try to Move File" sap:VirtualizedContainerService.HintSize="484,1638" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                           <TryCatch.Variables>
                             <Variable x:TypeArguments="x:String" Name="NewFileName" />
                           </TryCatch.Variables>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Match file by Annotation and move it to Processed" sap:VirtualizedContainerService.HintSize="526,1656" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <Sequence DisplayName="Match file by Annotation and move it to Processed" sap:VirtualizedContainerService.HintSize="426,1400" sap2010:WorkflowViewState.IdRef="Sequence_7">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="NewFilePath" />
                               </Sequence.Variables>
@@ -659,7 +664,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Find matching file" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_8">
+                              <Assign DisplayName="Find matching file" sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_8">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[MatchedFile]</OutArgument>
                                 </Assign.To>
@@ -667,7 +672,7 @@
                                   <InArgument x:TypeArguments="x:String">[Directory.GetFiles(FolderLocationObj("ProcessingSaveFolder").ToString,"*_*" +AnnotationID+ ".*").First]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="384,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_6">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,184.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -697,7 +702,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
-                              <Assign sap2010:Annotation.AnnotationText="Retains same name of the file when moving to a new location" DisplayName="Assign New File Name" sap:VirtualizedContainerService.HintSize="484,107.333333333333" sap2010:WorkflowViewState.IdRef="Assign_53">
+                              <Assign sap2010:Annotation.AnnotationText="Retains same name of the file when moving to a new location" DisplayName="Assign New File Name" sap:VirtualizedContainerService.HintSize="384,107.333333333333" sap2010:WorkflowViewState.IdRef="Assign_53">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[NewFileName]</OutArgument>
                                 </Assign.To>
@@ -710,7 +715,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
-                              <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_68">
+                              <Assign sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_68">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[NewFilePath]</OutArgument>
                                 </Assign.To>
@@ -718,9 +723,9 @@
                                   <InArgument x:TypeArguments="x:String">[Path.Combine(FolderLocationObj("ProcessedSaveFolder").toString, NewFileName)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <ui:MoveFile ContinueOnError="{x:Null}" Destination="[NewFilePath]" DisplayName="Move File to Processed files" sap:VirtualizedContainerService.HintSize="484,162" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[MatchedFile]" />
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;File moved to Processed folder&quot;]" />
-                              <Sequence sap2010:Annotation.AnnotationText="If needed to switch off- disable this sequence" DisplayName="Run Approval Process" sap:VirtualizedContainerService.HintSize="484,527.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                              <ui:MoveFile ContinueOnError="{x:Null}" Destination="[NewFilePath]" DisplayName="Move File to Processed files" sap:VirtualizedContainerService.HintSize="384,162" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[MatchedFile]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;File moved to Processed folder&quot;]" />
+                              <Sequence sap2010:Annotation.AnnotationText="If needed to switch off- disable this sequence" DisplayName="Run Approval Process" sap:VirtualizedContainerService.HintSize="384,527.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_71">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -728,47 +733,27 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Sending Invoice to Approval Process&quot;]" />
-                                <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_69">
+                                <ui:BeginProcess DisplayName="Run Parallel Process" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="BeginProcess_1" ProcessName="Invoice-CreateTask_Fiberpreg">
+                                  <ui:BeginProcess.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFilePath">[Path.GetFullPath(NewFilePath)]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceDataPath">[Path.GetFullPath(ExportedDataFilepath + ".txt")]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_FolderLocationData">[FolderLocationDataString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_AnnotationID">[AnnotationID]</InArgument>
+                                  </ui:BeginProcess.Arguments>
+                                </ui:BeginProcess>
+                                <Assign DisplayName="Assign Processor Folder Parameter" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_72">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[out_OutputInvoiceFolder]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:String">[ProcessorFolder]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
                                     <InArgument x:TypeArguments="x:String">Approved</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <ui:BeginProcess DisplayName="Run Parallel Process" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="BeginProcess_1" ProcessName="Invoice-CreateTask_Fiberpreg">
-                                  <ui:BeginProcess.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFilePath">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.GetFullPath(NewFilePath)" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceDataPath">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.GetFullPath(ExportedDataFilepath + &quot;.txt&quot;)" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_FolderLocationData">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FolderLocationDataString" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_AnnotationID">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="AnnotationID" />
-                                    </InArgument>
-                                  </ui:BeginProcess.Arguments>
-                                </ui:BeginProcess>
                               </Sequence>
-                              <If Condition="[out_OutputInvoiceFolder.Equals(&quot;Approved&quot;)]" DisplayName="If Output folder assigned to Approved" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_6">
-                                <If.Else>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_70">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:String">[out_OutputInvoiceFolder]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">Processed</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                </If.Else>
-                              </If>
                             </Sequence>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="430.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -816,7 +801,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="611.333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -827,7 +812,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Report Exception and go to next item" sap:VirtualizedContainerService.HintSize="480.666666666667,766" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                          <Sequence DisplayName="Report Exception and go to next item" sap:VirtualizedContainerService.HintSize="480.666666666667,645.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_70">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -841,7 +826,7 @@
                                 <InArgument x:TypeArguments="x:String">[URL("id").ToString.Split("/"c).Last]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,574.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,494" sap2010:WorkflowViewState.IdRef="TryCatch_10">
                               <TryCatch.Try>
                                 <Sequence sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_68">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -908,7 +893,7 @@
               </ui:ForEach.Body>
             </ui:ForEach>
           </Sequence>
-          <Sequence DisplayName="Logout" sap:VirtualizedContainerService.HintSize="798,356.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Logout" sap:VirtualizedContainerService.HintSize="798,786.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="loginJson" />
             </Sequence.Variables>
@@ -918,8 +903,37 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;Logging out....&quot;]" />
-            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[loginJson]" BodyFormat="application/json" DisplayName="HTTP Request - LOGOUT" EndPoint="[Endpoint + &quot;/auth/logout&quot;]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="HttpClient_7" Method="POST" TimeoutMS="20000">
+            <If Condition="[ProcessorFolder.Equals(&quot;Approved&quot;)]" DisplayName="If Output folder assigned to Approved" sap:VirtualizedContainerService.HintSize="570,216" sap2010:WorkflowViewState.IdRef="If_6">
+              <If.Then>
+                <Assign DisplayName="Assign Asset Value to Approved" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_73">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[DataProcessorAsset]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[FolderLocationObj.Item("ApprovedSaveFolder").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+              <If.Else>
+                <Assign DisplayName="Assign Asset Value to Processed" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_71">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Object">[DataProcessorAsset]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[FolderLocationObj.Item("ProcessedSaveFolder").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Else>
+            </If>
+            <ui:SetAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Stores path for the data processing (next process), different when Approve activity is on/off. It is a folder path to the downloaded (or approved) files to process." AssetName="DataProcessingFolder" DisplayName="Set Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="570,134" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[DataProcessorAsset]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:SetAsset>
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="570,68" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;Logging out....&quot;]" />
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" Body="[loginJson]" BodyFormat="application/json" DisplayName="HTTP Request - LOGOUT" EndPoint="[Endpoint + &quot;/auth/logout&quot;]" sap:VirtualizedContainerService.HintSize="570,22" sap2010:WorkflowViewState.IdRef="HttpClient_7" Method="POST" TimeoutMS="20000">
               <ui:HttpClient.Attachments>
                 <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
               </ui:HttpClient.Attachments>
@@ -936,7 +950,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
               </ui:HttpClient.UrlSegments>
             </ui:HttpClient>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Account Logged out.&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="570,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Account Logged out.&quot;]" />
           </Sequence>
         </Sequence>
       </TryCatch.Try>
